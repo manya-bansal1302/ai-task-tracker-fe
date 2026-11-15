@@ -1,3 +1,5 @@
+import { API_BASE_URL } from "../services/api";
+
 function GoogleIcon() {
   return (
     <svg aria-hidden="true" className="h-5 w-5" viewBox="0 0 48 48">
@@ -45,7 +47,7 @@ export default function LoginPage() {
         </header>
 
         <a
-          href="http://localhost:3000/auth/google"
+          href={`${API_BASE_URL}/auth/google`}
           className="flex w-full items-center justify-center gap-3 rounded-xl border border-slate-300 bg-white px-5 py-3.5 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-violet-100"
         >
           <GoogleIcon />
