@@ -1,6 +1,12 @@
-export const API_BASE_URL = (
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:3000"
-).replace(/\/$/, "");
+// In production, call the API through the frontend's own origin. Render's
+// rewrite rules proxy these paths to the backend, keeping auth cookies
+// same-origin on mobile browsers. During local development, use the API URL.
+export const API_BASE_URL = import.meta.env.PROD
+  ? ""
+  : (import.meta.env.VITE_API_BASE_URL || "http://localhost:3000").replace(
+      /\/$/,
+      "",
+    );
 
 export async function apiRequest(path, options = {}, retryOn401 = false) {
   const response = await fetch(`${API_BASE_URL}${path}`, {
