@@ -1,5 +1,4 @@
 import { API_BASE_URL } from "../services/api";
-import ThemeToggle from "../components/ThemeToggle.jsx";
 
 function GoogleIcon() {
   return (
@@ -27,9 +26,6 @@ function GoogleIcon() {
 export default function LoginPage() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-slate-50 px-4 py-10 text-slate-900">
-      <div className="fixed right-4 top-4">
-        <ThemeToggle />
-      </div>
       <section className="w-full max-w-md rounded-3xl border border-slate-200 bg-white p-8 shadow-xl shadow-slate-200/60 sm:p-10">
         <header className="mb-9 text-center">
           <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-600 text-xl font-bold text-white shadow-lg shadow-violet-200">
