@@ -23,7 +23,7 @@ const statusLabels = {
 };
 
 export default function DashboardPage() {
-  const { user } = useOutletContext();
+  const { user } = useOutletContext() || {};
   const navigate = useNavigate();
 
   const [tasks, setTasks] = useState([]);
@@ -262,7 +262,7 @@ export default function DashboardPage() {
           <div>
             <p className="text-sm font-medium text-violet-600">TaskPilot</p>
             <h1 className="mt-1 text-3xl font-bold text-slate-900">
-              Welcome, {user.name || user.email}
+              Welcome, {user?.name || user?.email || "there"}
             </h1>
             <p className="mt-2 text-slate-600">Here are your tasks.</p>
           </div>
