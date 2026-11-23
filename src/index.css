@@ -1,1 +1,63 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+html.dark body {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+/* Recolor the shared Tailwind slate surfaces used across pages and dialogs. */
+.dark .bg-slate-50 { background-color: #0f172a; }
+.dark .bg-white { background-color: #1e293b; }
+.dark .bg-slate-100 { background-color: #334155; }
+.dark .bg-violet-50 { background-color: #2e1065; }
+.dark .bg-violet-100 { background-color: #4c1d95; }
+.dark .bg-red-50 { background-color: #450a0a; }
+
+.dark .text-slate-900,
+.dark .text-slate-800 { color: #f1f5f9; }
+.dark .text-slate-700,
+.dark .text-slate-600 { color: #cbd5e1; }
+.dark .text-slate-500,
+.dark .text-slate-400 { color: #94a3b8; }
+.dark .text-violet-900,
+.dark .text-violet-800 { color: #e9d5ff; }
+.dark .text-red-700 { color: #fecaca; }
+
+.dark .border-slate-100,
+.dark .border-slate-200 { border-color: #334155; }
+.dark .border-slate-300 { border-color: #475569; }
+.dark .border-violet-200 { border-color: #6b21a8; }
+.dark .border-violet-300 { border-color: #7e22ce; }
+
+.dark .ring-violet-100 { --tw-ring-color: #581c87; }
+.dark .shadow-slate-200\/60 { --tw-shadow-color: rgb(2 6 23 / 0.45); }
+
+.dark input,
+.dark textarea,
+.dark select {
+  color: #f1f5f9;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #94a3b8;
+}

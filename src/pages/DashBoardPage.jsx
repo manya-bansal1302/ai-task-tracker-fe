@@ -5,6 +5,7 @@ import DeleteTaskModal from "../components/DeleteTaskModel.jsx";
 import EditTasksModal from "../components/EditTasksModal.jsx";
 import { logout } from "../services/authService.js";
 import AIAssistantMenu from "../components/AIAssistantMenu.jsx";
+import ThemeToggle from "../components/ThemeToggle.jsx";
 import {
   createTask,
   deleteTask,
@@ -267,7 +268,8 @@ export default function DashboardPage() {
             <p className="mt-2 text-slate-600">Here are your tasks.</p>
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex flex-wrap items-center gap-3">
+            <ThemeToggle />
             <button
               onClick={() => {
                 setFormError("");
