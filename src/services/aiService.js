@@ -4,6 +4,18 @@ export function generateTaskReport() {
   return apiRequest("/ai/task-report", { method: "POST" }, true);
 }
 
+export function chatWithTasks(messages) {
+  return apiRequest(
+    "/ai/chat",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages }),
+    },
+    true,
+  );
+}
+
 export function parseTaskFromSpeech(transcript) {
   return apiRequest(
     "/ai/parse-task",

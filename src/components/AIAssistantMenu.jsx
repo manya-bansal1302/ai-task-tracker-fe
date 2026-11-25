@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { generateTaskReport } from "../services/aiService.js";
 import TaskReportModal from "./TaskReportModal.jsx";
+import AIChatModal from "./AIChatModal.jsx";
 
 const aiOptions = [
   { id: "report", label: "Task report", icon: "📊", right: 4, bottom: 99 },
@@ -19,6 +20,7 @@ export default function AIAssistantMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
   const [isReportModalOpen, setIsReportModalOpen] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
   const [report, setReport] = useState("");
   const [reportError, setReportError] = useState("");
@@ -70,6 +72,10 @@ export default function AIAssistantMenu() {
                   onClick={() => {
                     if (option.id === "report") {
                       handleTaskReport();
+                    } else if (option.id === "chat") {
+                      setIsOpen(false);
+                      setMessage("");
+                      setIsChatOpen(true);
                     } else {
                       setMessage(
                         `${option.label} will be connected in a later step.`,
@@ -115,6 +121,7 @@ export default function AIAssistantMenu() {
           onRetry={handleTaskReport}
         />
       )}
+      {isChatOpen && <AIChatModal onClose={() => setIsChatOpen(false)} />}
     </>
   );
 }
